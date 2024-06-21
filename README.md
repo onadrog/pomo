@@ -14,8 +14,8 @@ $ ./pomo
 ## Keybinds
 
 | Key     | Action       |
---------------------------
-| `space` | toogle pause |
+|---------|--------------|
+| `space` | toggle pause |
 
 ### DISCLAIMER
 
