@@ -7,9 +7,15 @@ Simple "pomodoro" thing written in C using [raylib](https://github.com/raysan5/r
 
  ```sh
 
-$ cc -lraylib -o pomo pomo.c
+$ ./build.sh
+$ ./pomo
 
 ```
+## Keybinds
+
+| Key     | Action       |
+--------------------------
+| `space` | toogle pause |
 
 ### DISCLAIMER
 
