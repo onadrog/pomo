@@ -15,7 +15,6 @@
  */
 
 #include "pomo.h"
-#include <assert.h>
 #include <stdio.h>
 
 #define SCREEN_WIDTH 800
@@ -69,9 +68,7 @@ int main(void) {
   const int timer_size = MeasureText("00:00:00", 20);
   float timer = SET_TIMER(FOCUS_TIMER);
   STATES_FLAGS flag = FOCUS;
-  STATES_FLAGS last_flag = flag;
   State current_state = states[0];
-  State last_state = current_state;
 
   InitAudioDevice();
 
@@ -84,12 +81,13 @@ int main(void) {
     BeginDrawing();
 
     if (IsKeyPressed(KEY_SPACE)) {
-      if (flag > PAUSE) { // already PAUSE flag
-        flag ^= PAUSE;    // remove PAUSE flag
+      if (flag > PAUSE) {          // already PAUSE flag
+        flag ^= PAUSE;             // remove PAUSE flag
+        current_state = states[flag >> 1]; // 6 >> 1 = 3 segfault...
       } else {
-        flag |= PAUSE; // Adding PAUSE flag
+        flag |= PAUSE;                     // Adding PAUSE flag
+        current_state = states[ARRAY_LEN(states) - 1]; // Temporary fix ...
       }
-      current_state = states[flag >> 1];
     }
     switch (flag) {
     case FOCUS:

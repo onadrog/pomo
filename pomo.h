@@ -39,6 +39,8 @@ typedef struct {
 
 #define SET_TIMER(timer) timer * 60.f
 #define FONT_SIZE (float)(SCREEN_WIDTH * 0.25f)
+#define NEGATIVE_MOD(a,b) ((a % b) + b ) % b
+#define ARRAY_LEN(x) (sizeof(x) / sizeof(x[0]))
 
 /**
  * @brief Convert seconds to time format

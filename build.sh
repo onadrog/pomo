@@ -2,4 +2,4 @@
 
 set -xe
 
-cc -O3 -lraylib -o pomo pomo.c
+cc -Wall -Wextra -O3 -lraylib -o pomo pomo.c
